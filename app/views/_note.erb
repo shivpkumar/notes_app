@@ -1,0 +1,11 @@
+<tr id="<%= note.id %>">
+  <td><%= note.title %></td>
+  <td><%= note.content %></td>
+  <td><a class="edit" href="<%= "/update/#{note.id}" %>">Edit</a></td>
+  <td>
+    <a class="delete" href="<%= "/destroy/#{note.id}" %>" >Delete
+    </a>
+  </td>
+</tr>
+
+<!-- onclick="return confirm('Are you sure you want to delete this note?');" -->

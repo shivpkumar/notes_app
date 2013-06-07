@@ -1,23 +1,25 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+<h1>Make Yo'self Sum Notes!</h1>
+<p>Here we go...</p>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
-</div>
+<form id="create_form" action="/create" method="POST">
+  <ul>
+    <li><input type="text" name="note[title]" placeholder="title"></li>
+    <li><textarea rows="2" cols="35" name="note[content]" placeholder="content"></textarea></li>
+    <li><input type="submit" value="Create Note">
+  </ul>
+</form>
+
+</br>
+</br>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+  </tr>
+  <% @notes.each do |note| %>
+    <%= erb :_note, { layout: false, locals: { note: note } } %>
+  <% end %>
+</table>
+
+

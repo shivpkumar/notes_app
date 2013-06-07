@@ -1,0 +1,8 @@
+<form id="update_form" action="/update/<%= note.id %>" data-id="<%= note.id %>" method="POST">
+  <ul>
+    <li><input type="text" name="note[title]" value="<%= "#{note.title}" %>"></li>
+    <li><textarea rows="2" cols="35" name="note[content]"><%= "#{note.content}" %></textarea></li>
+    <li><input type="submit" value="Update Note">
+  </ul>
+<!--   <input type="hidden" name="note[id]" value="<%= note.id %>"> -->
+</form>
